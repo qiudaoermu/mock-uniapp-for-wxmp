@@ -8,7 +8,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const SelfExecuteComponent = require('./self-execute-component');
 
 function getCopyPattern(context) {
-    const dist = path.resolve(`${context}/../dist/`);
+    const dist = path.resolve(`${context}/../dist/mp-alipay`);
     const copyFiles = ['project.config.json', 'sitemap.json','static'] // 'project.private.config.json'
     return copyFiles.map(file => {
         // console.log(`${context}/${file}`,'file')
@@ -26,7 +26,7 @@ module.exports = function (context) {
         new CopyPlugin({
             patterns: getCopyPattern(context)
         }),
-        new MiniCssExtractPlugin({filename: "[name].wxss"}),
+        new MiniCssExtractPlugin({filename: "[name].acss"}),
         new webpack.ProvidePlugin({
             createApp:       [mpRuntime, 'createApp'],
             createComponent: [mpRuntime, 'createComponent'],

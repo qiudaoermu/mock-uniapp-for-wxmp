@@ -23,7 +23,7 @@ module.exports = function (context) {
             chunkFilename: "[id].js",
             filename: "[name].js",
             globalObject: "global",
-            path: path.resolve(context, '../dist'),
+            path: path.resolve(context, '../dist/mp-alipay'),
             publicPath: "/"
         },
         module: {

@@ -54,7 +54,7 @@ module.exports = {
 
         const ast = parser.parse(`function render(){${res.render}}`)
         let template = '';
-
+        console.log(options.mp.platform,"options.mp.platform")
         try {
             res.render = generateScript(traverseScript(ast, state), state)
             template = generateTemplate(traverseTemplate(ast, state), state)

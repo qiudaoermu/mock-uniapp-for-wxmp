@@ -13,7 +13,6 @@
         <span> {{ item }}、</span>
       </block>
     </div>
-     <p>{{ $t('hello') }}</p>
     <input style="margin-top:30px" v-model="searchText" class="input" />
   </div>
 </template>
@@ -31,14 +30,12 @@ export default {
  
   watch: {
     searchText() {
-      console.log("searchText", this.searchText);
       this.content = this.searchText;
     },
   },
   methods: {
     clickHandler() {
       this.showSpan = !this.showSpan;
-
       uni.navigateTo({
         url: "/pages/sub/sell/index",
       });
@@ -60,14 +57,4 @@ export default {
   background: lightgray;
 }
 </style>
-<i18n>
-{
-  "en": {
-    "hello": "hello world!"
-  },
-  "ja": {
-    "hello": "こんにちは、世界!"
-  }
-}
-</i18n>
 

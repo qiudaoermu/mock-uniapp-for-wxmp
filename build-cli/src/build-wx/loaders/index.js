@@ -15,10 +15,11 @@ function getRules(context) {
                     options: {
                         compiler: require('./uni-template-compiler'), // 模板预编译 （template => ast => render）
                         compilerOptions: {
-                            mp: {
+                            mp: [{
                                 platform: "mp-weixin",
                                 scopedSlotsCompiler: "auto",
                             },
+                        ],
                             filterModules: {},
                             filterTagName: 'wxs',
                         },
@@ -66,15 +67,6 @@ function getRules(context) {
                 }
             ]
         },
-        {
-            // 使用 resourceQuery 来为一个没有 lang 的自定义块匹配一条规则
-            // 如果找到了一个自定义块的匹配规则，它将会被处理，否则该自定义块会被默默忽略
-            resourceQuery: /blockType=i18n/,
-            // Rule.type 设置类型用于匹配模块。它防止了 defaultRules 和它们的默认导入行为发生
-            type: 'javascript/auto',
-            // 这里指的是 vue-i18n-loader
-            use: [path.resolve(__dirname, 'mp/i18n.js')]
-        }
     ]
 }
 
